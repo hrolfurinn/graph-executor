@@ -12,7 +12,7 @@ use std::rc::Rc;
 pub struct Operation {
     /// A shared reference to an operator, enabling runtime polymorphism and shared ownership.
     /// This allows multiple operations to share the same operator instance if needed.
-    operator: Rc<dyn Operator>, 
+    operator: Rc<dyn Operator>,
     /// Identifiers for the input values to this operation.
     input_ids: Vec<usize>,
     /// Identifiers for the output values from this operation.
@@ -27,7 +27,7 @@ pub struct Operation {
 /// Each operation within the graph is capable of performing a specific computation, taking
 /// certain values as input and producing output values. The graph orchestrates the execution
 /// of these operations, ensuring that inputs and outputs are correctly managed.
-/// 
+///
 /// Example graph structure:
 ///
 /// ```ignore
@@ -94,6 +94,4 @@ impl Graph {
             output_ids,
         }
     }
-
-    // Here, you can implement additional methods to manipulate or evaluate the graph...
 }

@@ -1,7 +1,6 @@
 use crate::buffer::Buffer;
-use std::vec::Vec;
 use std::fmt::Debug;
-
+use std::vec::Vec;
 
 pub trait Operator: Debug {
     /// Executes the operation using the provided input buffers and writes the results into the provided output buffers.
@@ -70,7 +69,10 @@ mod tests {
     #[test]
     fn test_operator_execute() {
         let operator = TestOperator;
-        let input_buffers = vec![Buffer::new_from_data(vec![1 as u8; 10]), Buffer::new_from_data(vec![2 as u8; 20])];
+        let input_buffers = vec![
+            Buffer::new_from_data(vec![1 as u8; 10]),
+            Buffer::new_from_data(vec![2 as u8; 20]),
+        ];
         let mut output_buffers = vec![Buffer::new_from_size(10), Buffer::new_from_size(20)];
         operator.execute(&input_buffers, &mut output_buffers);
         assert_eq!(input_buffers, output_buffers);
@@ -81,6 +83,9 @@ mod tests {
         let operator = TestOperator;
         let input_buffer_sizes = vec![10, 20];
         let expected_output_buffer_sizes = vec![10, 20];
-        assert_eq!(operator.compute_output_buffer_sizes(&input_buffer_sizes), expected_output_buffer_sizes);
+        assert_eq!(
+            operator.compute_output_buffer_sizes(&input_buffer_sizes),
+            expected_output_buffer_sizes
+        );
     }
 }

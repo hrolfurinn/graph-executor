@@ -1,8 +1,8 @@
-#[derive(Debug,Clone,PartialEq)]
-pub struct Buffer {    
-    // TODO: How to have the storage be only a reference 
+#[derive(Debug, Clone, PartialEq)]
+pub struct Buffer {
+    // TODO: How to have the storage be only a reference
     // TODO: Better datatype for storage
-    storage: Vec<u8>
+    storage: Vec<u8>,
 }
 
 impl Buffer {
@@ -13,9 +13,7 @@ impl Buffer {
     }
 
     pub fn new_from_data(data: Vec<u8>) -> Self {
-        Self {
-            storage: data,
-        }
+        Self { storage: data }
     }
 
     pub fn read(&self) -> &Vec<u8> {
@@ -25,7 +23,7 @@ impl Buffer {
     pub fn write(&mut self, data: &Vec<u8>) {
         self.storage = data.clone();
     }
-    
+
     pub fn size(&self) -> usize {
         self.storage.len()
     }
