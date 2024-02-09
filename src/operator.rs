@@ -9,7 +9,7 @@ pub trait Operator: Debug {
     ///
     /// * `input_buffers` - A slice of `Buffer` instances containing the inputs to the operation.
     /// * `output_buffers` - A mutable slice of `Buffer` instances where the operation's results should be stored.
-    fn execute(&self, input_buffers: &Vec<Buffer>, output_buffers: &mut Vec<Buffer>);
+    fn execute(&self, input_buffers: &[Buffer], output_buffers: &mut [Buffer]);
 
     /// Returns the expected number of input buffers for this operation.
     ///
@@ -46,7 +46,7 @@ mod tests {
     struct TestOperator;
 
     impl Operator for TestOperator {
-        fn execute(&self, input_buffers: &Vec<Buffer>, output_buffers: &mut Vec<Buffer>) {
+        fn execute(&self, input_buffers: &[Buffer], output_buffers: &mut [Buffer]) {
             // TODO: Add check for input and output buffer sizes
             for (input, output) in input_buffers.iter().zip(output_buffers.iter_mut()) {
                 output.write(input.read());

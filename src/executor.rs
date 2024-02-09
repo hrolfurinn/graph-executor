@@ -2,6 +2,8 @@ use crate::buffer::Buffer;
 use crate::graph::Graph;
 use std::vec::Vec;
 
+// TODO: Change inputs to slices instead of vectors when appropriate
+
 /// Defines the interface for a graph executor.
 /// A GraphExecutor is responsible for preparing and executing computational graphs.
 pub trait GraphExecutor {

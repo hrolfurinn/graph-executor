@@ -20,8 +20,8 @@ impl Buffer {
         &self.storage
     }
 
-    pub fn write(&mut self, data: &Vec<u8>) {
-        self.storage = data.clone();
+    pub fn write(&mut self, data: &[u8]) {
+        self.storage = data.to_owned();
     }
 
     pub fn size(&self) -> usize {
